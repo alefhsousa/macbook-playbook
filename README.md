@@ -112,7 +112,7 @@ Automatically prepare a Macbook for development and desktop tasks using Ansible.
 - Consul
 - Vault
 
-## Databses
+## Databases
 
 - PostgreSQL 9.4
 - MemCached
