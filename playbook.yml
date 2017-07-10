@@ -4,4 +4,14 @@
   connection: local
   gather_facts: false
   roles:
+    - erlang
+    - elixir
+    - golang
+    - node
+    - docker
+    - oh-my-zsh
+    - hadoop
+    - base
+    - jvm
+    - common
     - scmbreeze

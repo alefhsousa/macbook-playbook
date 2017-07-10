@@ -1,0 +1,13 @@
+- git:
+    repo: 'https://github.com/scmbreeze/scm_breeze.git'
+    dest: ~/.scm_breeze
+    clone: yes
+
+- name: Running the install.sh for install scm_breeze
+  shell: ~/.scm_breeze/install.sh
+
+- name: Include configs of  scm_breeze on .zshrc or .bashrc
+  shell: sh "$HOME/.scm_breeze/scm_breeze.sh" 
+
+- name: Compile configs
+  shell: source "$HOME/.scm_breeze/scm_breeze.sh"  

@@ -1,0 +1,15 @@
+#!/usr/bin/env sh
+
+xcode-select --install
+sudo sudo xcodebuild -license
+sudo easy_install pip
+sudo pip install paramiko PyYAML jinja2 ansible
+
+
+if [ ! `which brew` ]
+then
+    display "Installing Homebrew"
+    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+fi
+
+

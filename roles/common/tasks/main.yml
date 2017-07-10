@@ -1,0 +1,6 @@
+- name: Configure git
+  include: git.yml
+
+
+- name: Configure dev
+  include: dev.yml

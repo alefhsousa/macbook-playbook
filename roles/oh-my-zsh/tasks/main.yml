@@ -1,0 +1,23 @@
+---
+
+- name: Installing zsh package
+  homebrew:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - zsh
+  when: install_oh_my_zsh
+
+- name: Installing oh-my-zsh
+  git:
+    repo: https://github.com/robbyrussell/oh-my-zsh.git
+    dest: "~/.oh-my-zsh"
+    update: yes
+  when: install_oh_my_zsh
+
+- name: Configuring oh-my-zsh
+  template:
+    src: zshrc.j2
+    dest: "~/.zshrc"
+    backup: yes
+  when: configure_oh_my_zsh
