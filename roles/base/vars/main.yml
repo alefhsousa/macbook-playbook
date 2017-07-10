@@ -1,0 +1,131 @@
+---
+
+
+brew_install_cmd: "ruby -e \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)\""brew_bin: "/usr/local/bin/brew"
+brew_cask_bin: "/usr/local/bin/brew-cask"
+brew_base_packages:
+  - name: autoconf
+  - name: automake
+  - name: autojump
+  - name: bash
+  - name: bash-completion
+  - name: cloc
+  - name: certbot
+  - name: cmatrix
+  - name: cmake
+  - name: coreutils
+  - name: cscope
+  - name: ctags
+  - name: consul
+  - name: curl
+  - name: ffmpeg
+  - name: fdupes
+  - name: findutils
+  - name: fontconfig
+  - name: freetype
+  - name: fswatch
+  - name: gawk
+  - name: gettext
+  - name: git
+    install_options: "with-gettext,with-pcre,with-persistent-https,with-blk-sha1"
+  - name: git-extras
+  - name: git-lfs
+  - name: git-secrets
+  - name: go-app-engine-64
+  - name: goenv
+  - name: gnu-sed
+  - name: gnu-tar
+  - name: graphviz
+  - name: hadolint
+  - name: imagemagick
+  - name: heroku-toolbelt
+  - name: htop
+  - name: hub
+  - name: jq
+  - name: kubectl
+  - name: libevent
+  - name: libffi
+  - name: libidn
+  - name: libmemcached
+  - name: libmpc
+  - name: libpng
+  - name: libxml2
+  - name: libyaml
+  - name: lorem
+  - name: lua
+  - name: luajit
+  - name: makedepend
+  - name: memcached
+  - name: mercurial
+  - name: moreutils
+  - name: mongodb
+  - name: maven
+  - name: nomad
+  - name: ocaml
+  - name: opam
+  - name: otto
+  - name: packer
+  - name: phantomjs
+  - name: postgresql
+  - name: python
+  - name: readline
+  - name: redis
+  - name: rust
+  - name: s3cmd
+  - name: snappy
+  - name: sqlite
+  - name: terraform
+  - name: the_silver_searcher
+  - name: tree
+  - name: vault
+  - name: watch
+  - name: watchman
+  - name: wget
+  - name: xhyve
+  - name: yarn
+  - name: zeromq
+  - name: youtube-dl
+brew_cask_applications:
+  - name: anki
+  - name: arduino
+  - name: bartender
+  - name: disk-inventory-x
+  - name: firefox
+  - name: gpgtools
+    install_options: "--force"
+  - name: imagealpha
+  - name: imageoptim
+  - name: istat-menus
+  - name: iterm2
+  - name: java
+  - name: julia
+  - name: keybase
+  # - name: keyboardcleantool
+  - name: little-snitch
+  - name: minikube
+    install_options: "--force"
+  - name: postman
+  - name: screenhero
+  - name: sequel-pro
+  - name: spotify
+  - name: slack
+  - name: skype
+  - name: sublime-text
+  - name: the-unarchiver
+  - name: time-out
+  - name: torbrowser
+  - name: tunnelblick
+  - name: vagrant
+  - name: virtualbox
+  - name: vmware-fusion
+  - name: vlc
+  - name: visual-studio-code
+  - name: whatsapp
+  - name: youll-never-take-me-alive
+  - name: wireshark
+  
+brew_taps:
+  - name: caskroom/versions
+  - name: homebrew/science
+  - name: caskroom/cask
+  - name: caskroom/fonts
