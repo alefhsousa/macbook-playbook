@@ -10,8 +10,8 @@
     - node
     - docker
     - oh-my-zsh
+    - jvm
     - hadoop
     - base
-    - jvm
     - common
     - scmbreeze
