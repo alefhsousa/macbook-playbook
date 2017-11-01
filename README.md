@@ -1,12 +1,12 @@
 
-# macbook-playbook
+# macbook-playbook 
 
 Automatically prepare a Macbook for development and desktop tasks using Ansible.
 
 
 ## Tested on
 
-- MacBookPro15,4 with OS X 10.12.5 (Sierra)
+- MacBookPro 15,4 with OS X 10.12.6 (Sierra)
 
 ## Assumptions
 
@@ -26,14 +26,11 @@ Automatically prepare a Macbook for development and desktop tasks using Ansible.
 
 - Arduino
 - Anki
-- bartender
-- disk-inventory
+- Evernote
 - Firefox
 - Google Chrome
 - Google Photos
 - gpgtools
-- imagealpha and imageoptim
-- istat-menus
 - Postman
 - Skype
 - Slack
