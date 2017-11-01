@@ -1,7 +1,8 @@
 ---
 
 
-brew_install_cmd: "ruby -e \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)\""brew_bin: "/usr/local/bin/brew"
+brew_install_cmd: "ruby -e \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)\""
+brew_bin: "/usr/local/bin/brew"
 brew_cask_bin: "/usr/local/bin/brew-cask"
 brew_base_packages:
   - name: autoconf
