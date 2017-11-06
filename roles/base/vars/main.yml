@@ -83,11 +83,9 @@ brew_cask_applications:
   - name: anki
   - name: arduino
   - name: evernote
-  - name: firefox
   - name: gpgtools
     install_options: "--force"
   - name: iterm2
-  - name: java
   - name: julia
   - name: keybase
   - name: postman
