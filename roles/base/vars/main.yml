@@ -53,8 +53,6 @@ brew_base_packages:
   - name: libxml2
   - name: libyaml
   - name: lorem
-  - name: lua
-  - name: luajit
   - name: memcached
   - name: mongodb
   - name: maven
@@ -68,7 +66,6 @@ brew_base_packages:
   - name: rust
   - name: s3cmd
   - name: snappy
-  - name: sqlite
   - name: terraform
   - name: the_silver_searcher
   - name: tree
@@ -81,27 +78,20 @@ brew_base_packages:
   - name: youtube-dl
 brew_cask_applications:
   - name: anki
-  - name: arduino
   - name: evernote
   - name: gpgtools
     install_options: "--force"
   - name: iterm2
-  - name: julia
   - name: keybase
   - name: postman
   - name: screenhero
-  - name: sequel-pro
   - name: spotify
   - name: slack
   - name: skype
-  - name: sublime-text
-  - name: the-unarchiver
-  - name: time-out
   - name: torbrowser
   - name: tunnelblick
   - name: vagrant
   - name: virtualbox
-  - name: vmware-fusion
   - name: vlc
   - name: visual-studio-code
   - name: whatsapp

@@ -1,9 +1,0 @@
-- git_config:
-    name: user.email
-    scope: global
-    value: alefh.sousa@gmail.com
-
-- git_config:
-    name: user.name
-    scope: global
-    value: Alefh Sousa
