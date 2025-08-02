@@ -7,7 +7,7 @@ brew_cask_bin: "/usr/local/bin/brew-cask"
 brew_base_packages:
   - name: autoconf
   - name: automake
-  - name: autojump
+  - name: autojumpi
   - name: bash
   - name: bash-completion
   - name: cloc
@@ -58,11 +58,8 @@ brew_base_packages:
   - name: maven
   - name: nomad
   - name: packer
-  - name: phantomjs
-  - name: postgresql
   - name: python
   - name: readline
-  - name: redis
   - name: rust
   - name: s3cmd
   - name: snappy
@@ -74,28 +71,15 @@ brew_base_packages:
   - name: watchman
   - name: wget
   - name: xhyve
-  - name: zeromq
   - name: youtube-dl
 brew_cask_applications:
   - name: anki
-  - name: evernote
-  - name: gpgtools
-    install_options: "--force"
   - name: iterm2
   - name: keybase
-  - name: postman
-  - name: screenhero
   - name: spotify
   - name: slack
-  - name: skype
   - name: torbrowser
-  - name: tunnelblick
-  - name: vagrant
-  - name: virtualbox
-  - name: vlc
-  - name: visual-studio-code
   - name: whatsapp
-  - name: youll-never-take-me-alive
   - name: wireshark
   
 brew_taps:

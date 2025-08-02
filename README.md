@@ -24,28 +24,16 @@ Automatically prepare a Macbook for development and desktop tasks using Ansible.
 
 ### Desktop applications
 
-- Arduino
 - Anki
-- Evernote
-- Firefox
-- Google Chrome
-- Google Photos
 - gpgtools
-- Postman
-- Skype
 - Slack
 - Spotify
-- Screen Hero
-- Sequel Pro
 - Keybase
 - Tor Browser
-- Time Out
-- VLC
 - Whatsapp
 
 ### Text editors
 - Visual Studio Code
-- Sublime Text 3
 - Vim 8.0
 
 ### Command line applications
@@ -76,9 +64,6 @@ Automatically prepare a Macbook for development and desktop tasks using Ansible.
 ### Virtualization
 
 - Docker
-- Vagrant
-- VirtualBox
-- VMWare-Fusion
 
 ### Shell
 
