@@ -1,0 +1,19 @@
+---
+
+brew_cask_applications:
+  - name: anki
+  - name: iterm2
+  - name: keybase
+  - name: spotify
+  - name: slack
+  - name: torbrowser
+  - name: whatsapp
+  - name: wireshark
+  - name: zed
+  - name: datagrip
+  - name: goland
+  - name: pycharm
+  - name: intellij-idea
+  - name: rustrover
+  - name: notion
+  
