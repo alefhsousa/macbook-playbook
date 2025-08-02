@@ -1,11 +1,11 @@
-# golang
-- name: create local golang directory
-  file:
-    path: ~/go
-    state: directory
+---
 
-- name: include local golang bin in path
-  lineinfile:
-    dest: ~/.profile
-    line: export PATH=$PATH:$HOME/go/bin
-    create: yes
+- name: Install dev packages using brew
+  homebrew:
+    name: "{{ item.name }}"
+    install_options: "{{ item.install_options | default('') }}"
+    state: latest
+  with_items: "{{ brew_base_packages }}"
+  tags:
+    - base
+    - brew

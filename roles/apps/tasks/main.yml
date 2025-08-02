@@ -2,18 +2,10 @@
 
 - name: Install brew cask applications
   command: "brew install --cask {{item.install_options | default('') }} {{ item.name }}"
+  state: latest
   with_items: "{{ brew_cask_applications }}"
   ignore_errors: True
   tags:
     - base
     - brew
     - brew-cask
-
-- name: Cleanup cask
-  command: "brew cask cleanup"
-  ignore_errors: True
-  tags:
-    - base
-    - brew
-    - brew-cask
-    - cleanup

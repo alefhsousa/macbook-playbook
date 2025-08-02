@@ -6,7 +6,7 @@ brew_cask_applications:
   - name: keybase
   - name: spotify
   - name: slack
-  - name: torbrowser
+  - name: tor-browser
   - name: whatsapp
   - name: wireshark
   - name: zed
@@ -16,4 +16,8 @@ brew_cask_applications:
   - name: intellij-idea
   - name: rustrover
   - name: notion
+  - name: cursor
+  - name: bruno
+  - name: huggingchat
+  - name: figma
   

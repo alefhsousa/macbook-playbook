@@ -1,0 +1,7 @@
+---
+brew_dev_packages:
+  - name: atuin
+  - name: automake
+  - name: autojumpi
+  - name: bash
+  - name: bash-completion
