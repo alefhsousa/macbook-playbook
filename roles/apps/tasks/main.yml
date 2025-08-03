@@ -4,7 +4,6 @@
   community.general.homebrew_cask:
     name: "{{ item.name }}"
     install_options: "{{ item.install_options | default('') }}"
-    ignore_errors: True
     state: latest
   with_items: "{{ brew_cask_applications }}"
   tags:
