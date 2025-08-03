@@ -4,7 +4,7 @@ brew_dev_packages:
   - name: bcal
   - name: ack
   - name: bitwise
-  - name: doclt
+  - name: doctl
   - name: just
   - name: task
   - name: pre-commit
@@ -13,9 +13,8 @@ brew_dev_packages:
   - name: jq
   - name: kubectl
   - name: kubectx
-  - name: kubens
   - name: kubetail
   - name: kustomize
   - name: minikube
   - name: nmap
-  - name: nmtui
+  - name: helm
