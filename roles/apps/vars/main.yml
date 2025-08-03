@@ -20,4 +20,5 @@ brew_cask_applications:
   - name: bruno
   - name: huggingchat
   - name: figma
+  - name: 1password
   
