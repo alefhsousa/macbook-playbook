@@ -18,3 +18,4 @@ brew_dev_packages:
   - name: minikube
   - name: nmap
   - name: helm
+  - name: flyctl
