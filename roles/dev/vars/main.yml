@@ -1,7 +1,21 @@
 ---
 brew_dev_packages:
   - name: atuin
-  - name: automake
-  - name: autojumpi
-  - name: bash
-  - name: bash-completion
+  - name: bcal
+  - name: ack
+  - name: bitwise
+  - name: doclt
+  - name: just
+  - name: task
+  - name: pre-commit
+  - name: bmon
+  - name: hblock
+  - name: jq
+  - name: kubectl
+  - name: kubectx
+  - name: kubens
+  - name: kubetail
+  - name: kustomize
+  - name: minikube
+  - name: nmap
+  - name: nmtui
