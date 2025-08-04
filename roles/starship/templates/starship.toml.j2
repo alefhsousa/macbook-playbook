@@ -1,0 +1,112 @@
+# Starship configuration file
+# Get more info: https://starship.rs/config/
+
+# Inserts a blank line between shell prompts
+add_newline = true
+
+# Replace the '❯' symbol in the prompt with the specified character
+[character]
+success_symbol = "[➜](bold green)"
+error_symbol = "[✗](bold red)"
+vicmd_symbol = "[❮](bold green)"
+
+# Disable the package module
+[package]
+disabled = true
+
+# Customize the git status module
+[git_status]
+conflicted = "⚡"
+ahead = "⇡${count}"
+behind = "⇣${count}"
+diverged = "⇕⇡${ahead_count}⇣${behind_count}"
+up_to_date = "✓"
+untracked = "?"
+stashed = "≡"
+modified = "!"
+staged = "+"
+renamed = "»"
+deleted = "✘"
+
+# Customize the git state module
+[git_state]
+rebase = "REBASING"
+merge = "MERGING"
+cherry_pick = "CHERRY-PICKING"
+revert = "REVERTING"
+bisect = "BISECTING"
+am = "AM"
+am_or_rebase = "AM/REBASE"
+
+# Customize the directory module
+[directory]
+truncation_length = 3
+truncation_symbol = "…/"
+truncate_to_repo = true
+style = "blue bold"
+
+# Customize the hostname module
+[hostname]
+ssh_only = true
+disabled = false
+trim_at = ".companyname.com"
+
+# Customize the username module
+[username]
+style_user = "white bold"
+style_root = "black bold"
+disabled = false
+show_always = true
+
+# Customize the cmd_duration module
+[cmd_duration]
+min_time = 2_000
+style = "yellow"
+
+# Customize the time module
+[time]
+disabled = false
+time_format = "%T"
+style = "bold white"
+
+# Customize the battery module
+[battery]
+full_symbol = "🔋"
+charging_symbol = "⚡"
+discharging_symbol = "💀"
+unknown_symbol = "❓"
+empty_symbol = "🪫"
+disabled = false
+
+# Customize the jobs module
+[jobs]
+symbol = "+"
+style = "bold blue"
+
+# Customize the line_break module
+[line_break]
+disabled = false
+
+# Customize the nodejs module
+[nodejs]
+
+# Customize the python module
+[python]
+
+# Customize the rust module
+[rust]
+
+# Customize the helm module
+[helm]
+
+# Set the prompt format
+format = """
+$username\
+$hostname\
+$directory\
+$git_branch\
+$git_state\
+$git_status\
+$cmd_duration\
+$line_break\
+$character""" 

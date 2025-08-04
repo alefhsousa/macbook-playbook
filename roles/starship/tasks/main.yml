@@ -1,0 +1,62 @@
+---
+- name: Installing Starship via Homebrew
+  homebrew:
+    name: starship
+    state: latest
+  when: install_starship
+
+- name: Creating Starship config directory
+  file:
+    path: "~/.config"
+    state: directory
+    mode: '0755'
+  when: configure_starship
+
+- name: Configuring Starship
+  template:
+    src: starship.toml.j2
+    dest: "{{ starship_config_path }}"
+    backup: yes
+  when: configure_starship
+
+- name: Check if .zshrc exists
+  stat:
+    path: "~/.zshrc"
+  register: zshrc_stat
+  when: add_to_shell_init and configure_starship
+
+- name: Create .zshrc if it doesn't exist
+  file:
+    path: "~/.zshrc"
+    state: touch
+    mode: '0644'
+  when: add_to_shell_init and configure_starship and not zshrc_stat.stat.exists
+
+- name: Adding Starship to zsh initialization
+  lineinfile:
+    path: "~/.zshrc"
+    line: 'eval "$(starship init zsh)"'
+    insertafter: '^# Path to your oh-my-zsh installation'
+    state: present
+  when: add_to_shell_init and configure_starship
+
+- name: Check if .bash_profile exists
+  stat:
+    path: "~/.bash_profile"
+  register: bash_profile_stat
+  when: add_to_shell_init and configure_starship
+
+- name: Create .bash_profile if it doesn't exist
+  file:
+    path: "~/.bash_profile"
+    state: touch
+    mode: '0644'
+  when: add_to_shell_init and configure_starship and not bash_profile_stat.stat.exists
+
+- name: Adding Starship to bash initialization (if bash is used)
+  lineinfile:
+    path: "~/.bash_profile"
+    line: 'eval "$(starship init bash)"'
+    insertafter: '^#'
+    state: present
+  when: add_to_shell_init and configure_starship 

@@ -1,0 +1,37 @@
+---
+# Install Starship
+install_starship: yes
+
+# Configure Starship
+configure_starship: yes
+
+# Starship configuration file path
+starship_config_path: "~/.config/starship.toml"
+
+# Starship theme (optional - can be customized)
+starship_theme: "default"
+
+# Enable specific modules (optional)
+starship_modules:
+  - character
+  - directory
+  - git_branch
+  - git_commit
+  - git_state
+  - git_status
+  - nodejs
+  - python
+  - rust
+  - time
+  - cmd_duration
+  - line_break
+  - jobs
+  - battery
+  - hostname
+  - username
+
+# Custom prompt format (optional)
+starship_prompt_format: "$all"
+
+# Add Starship to shell initialization
+add_to_shell_init: yes 
