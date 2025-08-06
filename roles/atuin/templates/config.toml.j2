@@ -1,0 +1,186 @@
+# Atuin Configuration
+# {{ ansible_managed }}
+
+# Database path
+# db_path = "~/.local/share/atuin/history.db"
+
+# Key path
+# key_path = "~/.local/share/atuin/key"
+
+# Session path
+# session_path = "~/.local/share/atuin/session"
+
+# Date format (us or uk)
+dialect = "us"
+
+# Timezone
+timezone = "local"
+
+# Auto sync
+auto_sync = true
+
+# Update check
+update_check = true
+
+# Sync server address
+sync_address = "https://api.atuin.sh"
+
+# Sync frequency
+sync_frequency = "10m"
+
+# Search mode (prefix, fulltext, fuzzy, skim)
+search_mode = "fuzzy"
+
+# Filter mode (global, host, session, directory, workspace)
+filter_mode = "global"
+
+# Workspace filtering
+workspaces = false
+
+# UI style (auto, full, compact)
+style = "auto"
+
+# Inline height
+inline_height = 0
+
+# Invert UI
+invert = false
+
+# Show preview
+show_preview = true
+
+# Exit mode
+exit_mode = "return-original"
+
+# Word jump mode
+word_jump_mode = "emacs"
+
+# Word characters
+word_chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+
+# Scroll context lines
+scroll_context_lines = 1
+
+# Ctrl shortcuts
+ctrl_n_shortcuts = false
+
+# History format
+history_format = "{time}\t{command}\t{duration}"
+
+# History filter (prevent commands from being saved)
+history_filter = [
+  "^secret-cmd",
+  "^innocuous-cmd .*--secret=.+",
+]
+
+# CWD filter
+cwd_filter = [
+  "^/very/secret/area",
+]
+
+# Max preview height
+max_preview_height = 4
+
+# Show help
+show_help = true
+
+# Show tabs
+show_tabs = true
+
+# Auto hide height
+auto_hide_height = 8
+
+# Secrets filter
+secrets_filter = true
+
+# Enter accept
+enter_accept = true
+
+# Command chaining
+command_chaining = false
+
+# Keymap mode
+keymap_mode = "auto"
+
+# Network timeouts
+network_connect_timeout = 5
+network_timeout = 5
+
+# Local timeout
+local_timeout = 5
+
+# Prefers reduced motion
+prefers_reduced_motion = false
+
+[stats]
+# Common subcommands
+common_subcommands = [
+  "apt",
+  "cargo",
+  "composer",
+  "dnf",
+  "docker",
+  "git",
+  "go",
+  "ip",
+  "jj",
+  "kubectl",
+  "nix",
+  "nmcli",
+  "npm",
+  "pecl",
+  "pnpm",
+  "podman",
+  "port",
+  "systemctl",
+  "tmux",
+  "yarn",
+]
+
+# Common prefix
+common_prefix = ["sudo"]
+
+# Ignored commands
+ignored_commands = [
+  "cd",
+  "ls",
+  "vi"
+]
+
+[keys]
+# Scroll exits
+scroll_exits = true
+
+# Exit past line start
+exit_past_line_start = true
+
+# Accept past line end
+accept_past_line_end = true
+
+[sync]
+# Enable sync v2
+records = true
+
+[preview]
+# Preview strategy
+strategy = "auto"
+
+[daemon]
+# Enable daemon
+enabled = false
+
+# Sync frequency
+sync_frequency = 300
+
+# Socket path
+socket_path = "~/.local/share/atuin/atuin.sock"
+
+# Systemd socket
+systemd_socket = false
+
+# TCP port
+tcp_port = 8889
+
+[search]
+# Filter modes
+filters = [ "global", "host", "session", "workspace", "directory" ] 

@@ -1,0 +1,45 @@
+---
+- name: Install atuin via homebrew
+  homebrew:
+    name: atuin
+    state: latest
+  tags:
+    - atuin
+    - brew
+
+- name: Create atuin config directory
+  file:
+    path: "~/.config/atuin"
+    state: directory
+    mode: '0700'
+  tags:
+    - atuin
+    - config
+
+- name: Initialize atuin for zsh
+  shell: atuin init zsh
+  register: atuin_init_output
+  changed_when: atuin_init_output.rc == 0
+  tags:
+    - atuin
+    - config
+
+- name: Add atuin initialization to .zshrc
+  lineinfile:
+    path: "~/.zshrc"
+    line: 'eval "$(atuin init zsh)"'
+    insertafter: '^# Set personal aliases'
+    state: present
+  tags:
+    - atuin
+    - config
+
+- name: Create atuin config file
+  template:
+    src: config.toml.j2
+    dest: "~/.config/atuin/config.toml"
+    backup: yes
+    mode: '0600'
+  tags:
+    - atuin
+    - config 

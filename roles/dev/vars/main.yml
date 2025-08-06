@@ -1,6 +1,5 @@
 ---
 brew_dev_packages:
-  - name: atuin
   - name: bcal
   - name: ack
   - name: bitwise

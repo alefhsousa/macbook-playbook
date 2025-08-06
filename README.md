@@ -47,6 +47,7 @@ Automatically prepare a Macbook for development and desktop tasks using Ansible.
 - gawk
 - git 
 - imagemagick
+- atuin (history manager)
 
 
 ### Programming Languages

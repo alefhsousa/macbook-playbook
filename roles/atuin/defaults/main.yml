@@ -1,0 +1,45 @@
+---
+# Install atuin
+install_atuin: yes
+
+# Configure atuin
+configure_atuin: yes
+
+# Atuin config path
+atuin_config_path: "~/.config/atuin/config.toml"
+
+# Add to shell initialization
+add_to_shell_init: yes
+
+# Atuin configuration options
+atuin_config:
+  dialect: "us"
+  timezone: "local"
+  auto_sync: true
+  update_check: true
+  sync_address: "https://api.atuin.sh"
+  sync_frequency: "10m"
+  search_mode: "fuzzy"
+  filter_mode: "global"
+  workspaces: false
+  style: "auto"
+  inline_height: 0
+  invert: false
+  show_preview: true
+  exit_mode: "return-original"
+  word_jump_mode: "emacs"
+  scroll_context_lines: 1
+  ctrl_n_shortcuts: false
+  history_format: "{time}\t{command}\t{duration}"
+  max_preview_height: 4
+  show_help: true
+  show_tabs: true
+  auto_hide_height: 8
+  secrets_filter: true
+  enter_accept: true
+  command_chaining: false
+  keymap_mode: "auto"
+  network_connect_timeout: 5
+  network_timeout: 5
+  local_timeout: 5
+  prefers_reduced_motion: false 
