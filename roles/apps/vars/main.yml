@@ -1,5 +1,4 @@
 ---
-
 brew_cask_applications:
   - name: anki
   - name: iterm2
@@ -8,6 +7,7 @@ brew_cask_applications:
   - name: slack
   - name: tor-browser
   - name: whatsapp
+  - name: telegram
   - name: wireshark
   - name: zed
   - name: datagrip
@@ -21,4 +21,5 @@ brew_cask_applications:
   - name: huggingchat
   - name: figma
   - name: 1password
-  
+  - name: zoom
+  - name: rectangle
