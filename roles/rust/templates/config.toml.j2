@@ -21,12 +21,10 @@ retry = 3
 [target.x86_64-apple-darwin]
 # Linker configuration
 linker = "clang"
-rustflags = ["-C", "link-arg=-fuse-ld=lld"]
 
 [target.aarch64-apple-darwin]
 # Linker configuration for Apple Silicon
 linker = "clang"
-rustflags = ["-C", "link-arg=-fuse-ld=lld"]
 
 [profile.dev]
 # Optimizations for development
@@ -66,23 +64,7 @@ lto = "thin"
 codegen-units = 16
 panic = "abort"
 
-[registries.crates-io]
-# Registry configuration
-index = "https://github.com/rust-lang/crates.io-index"
-
-[registries.crates-io.protocol]
-# Protocol configuration
-version = "sparse"
-
-[source.crates-io]
-# Source configuration
-replace-with = "crates-io"
-
-[source.crates-io]
-# Registry source
-registry = "https://github.com/rust-lang/crates.io-index"
-
 [env]
 # Environment variables
 CARGO_INCREMENTAL = "1"
-CARGO_NET_GIT_FETCH_WITH_CLI = "true" 
+CARGO_NET_GIT_FETCH_WITH_CLI = "true"
