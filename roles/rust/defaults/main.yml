@@ -1,0 +1,51 @@
+---
+# Install Rust
+install_rust: yes
+
+# Configure Rust
+configure_rust: yes
+
+# Rust toolchains to install
+rust_toolchains:
+  - stable
+  - nightly
+
+# Rust components to install
+rust_components:
+  - rust-src
+  - rust-analysis
+  - rust-std
+  - rustc-dev
+
+# Common Rust tools to install
+rust_tools:
+  - cargo-edit
+  - cargo-audit
+  - cargo-outdated
+  - cargo-tree
+  - cargo-watch
+  - cargo-expand
+  - cargo-tarpaulin
+  - cargo-nextest
+  - cargo-llvm-lines
+  - cargo-docset
+  - cargo-sweep
+  - cargo-update
+  - cargo-asm
+  - cargo-bloat
+  - cargo-geiger
+  - cargo-license
+  - cargo-modules
+  - cargo-release
+  - cargo-workspaces
+  - cargo-zigbuild
+  - cross
+  - sccache
+  - wasm-pack
+  - trunk
+  - mdbook
+  - cargo-generate
+  - cargo-make
+  - cargo-hack
+  - cargo-llvm-cov
+  - cargo-msrv 

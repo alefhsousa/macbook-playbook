@@ -1,0 +1,88 @@
+# Cargo Configuration
+# {{ ansible_managed }}
+
+[build]
+# Parallel jobs
+jobs = {{ ansible_processor_cores | default(4) }}
+
+# Target directory
+target-dir = "target"
+
+# Rust flags
+rustflags = ["-C", "target-cpu=native"]
+
+[net]
+# Git fetch with git CLI
+git-fetch-with-cli = true
+
+# Retry configuration
+retry = 3
+
+[target.x86_64-apple-darwin]
+# Linker configuration
+linker = "clang"
+rustflags = ["-C", "link-arg=-fuse-ld=lld"]
+
+[target.aarch64-apple-darwin]
+# Linker configuration for Apple Silicon
+linker = "clang"
+rustflags = ["-C", "link-arg=-fuse-ld=lld"]
+
+[profile.dev]
+# Optimizations for development
+opt-level = 0
+debug = true
+split-debuginfo = "unpacked"
+debug-assertions = true
+overflow-checks = true
+
+[profile.release]
+# Optimizations for release
+opt-level = 3
+debug = false
+split-debuginfo = "packed"
+debug-assertions = false
+overflow-checks = false
+lto = "thin"
+codegen-units = 16
+panic = "abort"
+
+[profile.test]
+# Optimizations for tests
+opt-level = 0
+debug = true
+split-debuginfo = "unpacked"
+debug-assertions = true
+overflow-checks = true
+
+[profile.bench]
+# Optimizations for benchmarks
+opt-level = 3
+debug = false
+split-debuginfo = "packed"
+debug-assertions = false
+overflow-checks = false
+lto = "thin"
+codegen-units = 16
+panic = "abort"
+
+[registries.crates-io]
+# Registry configuration
+index = "https://github.com/rust-lang/crates.io-index"
+
+[registries.crates-io.protocol]
+# Protocol configuration
+version = "sparse"
+
+[source.crates-io]
+# Source configuration
+replace-with = "crates-io"
+
+[source.crates-io]
+# Registry source
+registry = "https://github.com/rust-lang/crates.io-index"
+
+[env]
+# Environment variables
+CARGO_INCREMENTAL = "1"
+CARGO_NET_GIT_FETCH_WITH_CLI = "true" 

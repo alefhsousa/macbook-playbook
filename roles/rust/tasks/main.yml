@@ -1,0 +1,72 @@
+---
+- name: Install rustup
+  shell: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+  args:
+    creates: "{{ lookup('env', 'HOME') }}/.cargo/bin/rustup"
+  tags:
+    - rust
+    - rustup
+
+- name: Add cargo to PATH
+  lineinfile:
+    path: "~/.zshrc"
+    line: 'export PATH="$HOME/.cargo/bin:$PATH"'
+    insertafter: '^# Set personal aliases'
+    state: present
+  tags:
+    - rust
+    - config
+
+- name: Install Rust toolchain
+  shell: "{{ lookup('env', 'HOME') }}/.cargo/bin/rustup default stable"
+  args:
+    creates: "{{ lookup('env', 'HOME') }}/.cargo/bin/rustc"
+  tags:
+    - rust
+    - toolchain
+
+- name: Install additional Rust toolchains
+  shell: "{{ lookup('env', 'HOME') }}/.cargo/bin/rustup toolchain install {{ item }}"
+  with_items: "{{ rust_toolchains }}"
+  tags:
+    - rust
+    - toolchain
+
+- name: Install Rust components
+  shell: "{{ lookup('env', 'HOME') }}/.cargo/bin/rustup component add {{ item }}"
+  with_items: "{{ rust_components }}"
+  tags:
+    - rust
+    - components
+
+- name: Install common Rust tools
+  shell: "{{ lookup('env', 'HOME') }}/.cargo/bin/cargo install {{ item }}"
+  with_items: "{{ rust_tools }}"
+  tags:
+    - rust
+    - tools
+
+- name: Create cargo config directory
+  file:
+    path: "~/.cargo"
+    state: directory
+    mode: '0755'
+  tags:
+    - rust
+    - config
+
+- name: Configure cargo
+  template:
+    src: config.toml.j2
+    dest: "~/.cargo/config.toml"
+    backup: yes
+    mode: '0644'
+  tags:
+    - rust
+    - config
+
+- name: Update Rust toolchain
+  shell: "{{ lookup('env', 'HOME') }}/.cargo/bin/rustup update"
+  tags:
+    - rust
+    - update 

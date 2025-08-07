@@ -60,7 +60,6 @@ brew_base_packages:
   - name: packer
   - name: python
   - name: readline
-  - name: rust
   - name: s3cmd
   - name: snappy
   - name: terraform
