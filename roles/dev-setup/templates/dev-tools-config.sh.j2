@@ -1,0 +1,51 @@
+# Development Tools Configuration
+# {{ ansible_managed }}
+
+# Rust tools configuration
+export RUST_BACKTRACE=1
+export CARGO_INCREMENTAL=1
+export CARGO_NET_GIT_FETCH_WITH_CLI=true
+
+# Node.js tools configuration
+export NODE_ENV=development
+export NPM_CONFIG_PREFIX="{{ home_dir }}/.npm-global"
+
+# Python tools configuration
+export PYTHONPATH="{{ home_dir }}/projects:$PYTHONPATH"
+export VIRTUAL_ENV_DISABLE_PROMPT=1
+
+# Go tools configuration
+export GOPATH="{{ home_dir }}/go"
+export GOROOT="/usr/local/go"
+export PATH="$GOPATH/bin:$GOROOT/bin:$PATH"
+
+# Java tools configuration
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/adoptopenjdk-11.jdk/Contents/Home"
+export PATH="$JAVA_HOME/bin:$PATH"
+
+# Docker tools configuration
+export DOCKER_BUILDKIT=1
+export COMPOSE_DOCKER_CLI_BUILD=1
+
+# Development paths
+export DEV_HOME="{{ home_dir }}"
+export GITHUB_DIR="{{ home_dir }}/github"
+export DEV_TOOLS_DIR="{{ home_dir }}/dev-tools"
+export SCRIPTS_DIR="{{ home_dir }}/scripts"
+
+# Add development directories to PATH
+export PATH="$SCRIPTS_DIR:$DEV_TOOLS_DIR:$PATH"
+
+# Development utilities
+export HISTSIZE=10000
+export SAVEHIST=10000
+export HISTFILE="{{ home_dir }}/.zsh_history"
+
+# Color support
+export CLICOLOR=1
+export LSCOLORS=ExFxBxDxCxegedabagacad
+
+# Development aliases for quick access
+alias gh_dir='cd $GITHUB_DIR'
+alias tools='cd $DEV_TOOLS_DIR'
+alias scripts='cd $SCRIPTS_DIR' 

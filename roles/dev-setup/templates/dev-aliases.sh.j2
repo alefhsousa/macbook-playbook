@@ -1,0 +1,64 @@
+# Development Aliases
+# {{ ansible_managed }}
+
+
+# Directory navigation aliases
+alias dev='cd ~/workspace'
+alias gh='cd ~/github'
+alias proj='cd ~/projects'
+alias tools='cd ~/dev-tools'
+alias scripts='cd ~/scripts'
+
+# Development tool aliases
+alias code='zed .'
+alias vim='nvim'
+alias vi='nvim'
+alias zed='zed .'
+
+# Docker aliases
+alias d='docker'
+alias dc='docker-compose'
+alias dps='docker ps'
+alias dpsa='docker ps -a'
+
+
+# Rust aliases
+alias c='cargo'
+alias cb='cargo build'
+alias cr='cargo run'
+alias ct='cargo test'
+alias cf='cargo fmt'
+alias cc='cargo check'
+
+# Node.js aliases
+alias n='npm'
+alias nr='npm run'
+alias ni='npm install'
+alias nid='npm install --save-dev'
+
+# Python aliases
+alias p='python'
+alias p3='python3'
+alias pip='pip3'
+alias venv='python3 -m venv'
+alias activate='source venv/bin/activate'
+
+# Utility aliases
+alias ll='ls -la'
+alias la='ls -A'
+alias l='ls -CF'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+
+# Development shortcuts
+alias ports='lsof -i -P -n | grep LISTEN'
+alias myip='curl -s https://ipinfo.io/ip'
+alias weather='curl -s wttr.in'
+alias speedtest='curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python -'
+
+# Quick project creation
+alias newrust='cargo new'
+alias newnode='npm init -y'
+alias newpy='python3 -m venv venv && source venv/bin/activate && pip install --upgrade pip' 

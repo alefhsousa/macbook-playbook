@@ -1,0 +1,29 @@
+---
+# Development setup configuration
+setup_dev_environment: yes
+
+# Home directory
+home_dir: "{{ lookup('env', 'HOME') }}"
+
+# Development directories to create
+dev_directories:
+  - "{{ home_dir }}/github"
+  - "{{ home_dir }}/dev-tools"
+  - "{{ home_dir }}/scripts"
+  - "{{ home_dir }}/.config"
+
+# Git configuration
+git_config:
+  user_name: "Alefh Sousa"
+  user_email: "alefh.sousa@gmail.com"
+  default_branch: "main"
+  init_default_branch: "main"
+
+# Development environment variables
+dev_env_vars:
+  EDITOR: "zed"
+  VISUAL: "zed"
+  PAGER: "less"
+  MANPAGER: "less -R"
+
+ 

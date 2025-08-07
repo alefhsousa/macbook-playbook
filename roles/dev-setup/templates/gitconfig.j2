@@ -1,0 +1,48 @@
+[user]
+    name = {{ git_config.user_name }}
+    email = {{ git_config.user_email }}
+
+[core]
+    editor = zed --wait
+    pager = less -R
+    autocrlf = input
+
+[init]
+    defaultBranch = {{ git_config.init_default_branch }}
+
+[push]
+    default = simple
+    followTags = true
+
+[pull]
+    rebase = true
+
+[rebase]
+    autoStash = true
+
+[merge]
+    ff = false
+
+[log]
+    decorate = auto
+    abbrevCommit = true
+
+[color]
+    ui = auto
+    branch = auto
+    diff = auto
+    status = auto
+
+[alias]
+    st = status
+    co = checkout
+    br = branch
+    ci = commit
+    ca = commit -a
+    cm = commit -m
+    unstage = reset HEAD --
+    last = log -1 HEAD
+    visual = !gitk
+
+[credential]
+    helper = osxkeychain

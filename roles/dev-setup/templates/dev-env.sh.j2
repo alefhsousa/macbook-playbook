@@ -1,0 +1,65 @@
+# Development Environment Variables
+# {{ ansible_managed }}
+
+# Editor settings
+export EDITOR="zed"
+export VISUAL="zed"
+export PAGER="less"
+export MANPAGER="less -R"
+
+# Development paths
+export DEV_HOME="{{ home_dir }}"
+export GITHUB_DIR="{{ home_dir }}/github"
+export PROJECTS_DIR="{{ home_dir }}/projects"
+export WORKSPACE_DIR="{{ home_dir }}/workspace"
+export DEV_TOOLS_DIR="{{ home_dir }}/dev-tools"
+export SCRIPTS_DIR="{{ home_dir }}/scripts"
+
+# Add development directories to PATH
+export PATH="$SCRIPTS_DIR:$DEV_TOOLS_DIR:$PATH"
+
+# Language-specific environment variables
+export RUST_BACKTRACE=1
+export CARGO_INCREMENTAL=1
+export CARGO_NET_GIT_FETCH_WITH_CLI=true
+
+# Node.js environment
+export NODE_ENV=development
+export NPM_CONFIG_PREFIX="{{ home_dir }}/.npm-global"
+
+# Python environment
+export PYTHONPATH="{{ home_dir }}/projects:$PYTHONPATH"
+export VIRTUAL_ENV_DISABLE_PROMPT=1
+
+# Go environment
+export GOPATH="{{ home_dir }}/go"
+export GOROOT="/usr/local/go"
+export PATH="$GOPATH/bin:$GOROOT/bin:$PATH"
+
+# Java environment
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/adoptopenjdk-11.jdk/Contents/Home"
+export PATH="$JAVA_HOME/bin:$PATH"
+
+# Development tools
+export DOCKER_BUILDKIT=1
+export COMPOSE_DOCKER_CLI_BUILD=1
+
+# Git configuration
+export GIT_EDITOR="code --wait"
+export GIT_PAGER="less -R"
+
+# Development utilities
+export HISTSIZE=10000
+export SAVEHIST=10000
+export HISTFILE="{{ home_dir }}/.zsh_history"
+
+# Color support
+export CLICOLOR=1
+export LSCOLORS=ExFxBxDxCxegedabagacad
+
+# Development aliases for quick access
+alias dev='cd $WORKSPACE_DIR'
+alias gh='cd $GITHUB_DIR'
+alias proj='cd $PROJECTS_DIR'
+alias tools='cd $DEV_TOOLS_DIR'
+alias scripts='cd $SCRIPTS_DIR' 

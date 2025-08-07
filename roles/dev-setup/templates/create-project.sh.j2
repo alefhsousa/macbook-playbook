@@ -1,0 +1,304 @@
+#!/bin/bash
+
+# Project Creation Script
+# {{ ansible_managed }}
+
+set -e
+
+# Colors for output
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+BLUE='\033[0;34m'
+NC='\033[0m' # No Color
+
+# Function to print colored output
+print_status() {
+    echo -e "${GREEN}[INFO]${NC} $1"
+}
+
+print_warning() {
+    echo -e "${YELLOW}[WARNING]${NC} $1"
+}
+
+print_error() {
+    echo -e "${RED}[ERROR]${NC} $1"
+}
+
+print_header() {
+    echo -e "${BLUE}$1${NC}"
+}
+
+# Check if project name is provided
+if [ $# -eq 0 ]; then
+    print_error "Usage: $0 <project-name> [project-type]"
+    echo ""
+    echo "Available project types:"
+    echo "  rust     - Rust project"
+    echo "  node     - Node.js project"
+    echo "  python   - Python project"
+    echo "  go       - Go project"
+    echo "  java     - Java project"
+    echo "  docker   - Docker project"
+    echo "  k8s      - Kubernetes project"
+    echo "  web      - Web project (HTML/CSS/JS)"
+    echo "  react    - React project"
+    echo "  vue      - Vue.js project"
+    echo "  angular  - Angular project"
+    exit 1
+fi
+
+PROJECT_NAME=$1
+PROJECT_TYPE=${2:-"rust"}
+
+# Set base directory based on project type
+case $PROJECT_TYPE in
+    rust)
+        BASE_DIR="{{ home_dir }}/workspace/rust"
+        ;;
+    node|react|vue|angular)
+        BASE_DIR="{{ home_dir }}/workspace/node"
+        ;;
+    python)
+        BASE_DIR="{{ home_dir }}/workspace/python"
+        ;;
+    go)
+        BASE_DIR="{{ home_dir }}/workspace/go"
+        ;;
+    java)
+        BASE_DIR="{{ home_dir }}/workspace/java"
+        ;;
+    docker)
+        BASE_DIR="{{ home_dir }}/workspace/docker"
+        ;;
+    k8s)
+        BASE_DIR="{{ home_dir }}/workspace/kubernetes"
+        ;;
+    web)
+        BASE_DIR="{{ home_dir }}/workspace/web"
+        ;;
+    *)
+        print_error "Unknown project type: $PROJECT_TYPE"
+        exit 1
+        ;;
+esac
+
+PROJECT_DIR="$BASE_DIR/$PROJECT_NAME"
+
+# Check if project already exists
+if [ -d "$PROJECT_DIR" ]; then
+    print_warning "Project '$PROJECT_NAME' already exists in $PROJECT_DIR"
+    read -p "Do you want to continue? (y/N): " -n 1 -r
+    echo
+    if [[ ! $REPLY =~ ^[Yy]$ ]]; then
+        exit 1
+    fi
+fi
+
+print_header "Creating $PROJECT_TYPE project: $PROJECT_NAME"
+
+# Create project directory
+mkdir -p "$PROJECT_DIR"
+cd "$PROJECT_DIR"
+
+# Initialize project based on type
+case $PROJECT_TYPE in
+    rust)
+        print_status "Initializing Rust project..."
+        cargo init --name "$PROJECT_NAME"
+        print_status "Adding common Rust dependencies..."
+        cargo add serde serde_json tokio anyhow thiserror
+        ;;
+    node)
+        print_status "Initializing Node.js project..."
+        npm init -y
+        print_status "Adding common Node.js dependencies..."
+        npm install --save-dev typescript @types/node
+        npm install express cors helmet morgan
+        ;;
+    react)
+        print_status "Creating React project..."
+        npx create-react-app "$PROJECT_NAME" --template typescript
+        ;;
+    vue)
+        print_status "Creating Vue.js project..."
+        npm create vue@latest "$PROJECT_NAME"
+        ;;
+    angular)
+        print_status "Creating Angular project..."
+        npx @angular/cli new "$PROJECT_NAME" --routing --style=scss
+        ;;
+    python)
+        print_status "Initializing Python project..."
+        python3 -m venv venv
+        source venv/bin/activate
+        pip install --upgrade pip
+        pip install pytest black flake8 mypy
+        echo "venv/" > .gitignore
+        echo "__pycache__/" >> .gitignore
+        echo "*.pyc" >> .gitignore
+        ;;
+    go)
+        print_status "Initializing Go project..."
+        go mod init "$PROJECT_NAME"
+        go get github.com/gorilla/mux
+        go get github.com/joho/godotenv
+        ;;
+    java)
+        print_status "Initializing Java project..."
+        mkdir -p src/main/java
+        mkdir -p src/test/java
+        echo "build/" > .gitignore
+        echo "*.class" >> .gitignore
+        ;;
+    docker)
+        print_status "Creating Docker project..."
+        touch Dockerfile
+        touch docker-compose.yml
+        touch .dockerignore
+        ;;
+    k8s)
+        print_status "Creating Kubernetes project..."
+        mkdir -p k8s
+        touch k8s/deployment.yml
+        touch k8s/service.yml
+        touch k8s/configmap.yml
+        touch k8s/secret.yml
+        ;;
+    web)
+        print_status "Creating web project..."
+        touch index.html
+        touch style.css
+        touch script.js
+        mkdir -p assets
+        ;;
+esac
+
+# Create common files
+print_status "Creating common project files..."
+
+# Create README
+cat > README.md << EOF
+# $PROJECT_NAME
+
+## Description
+Add your project description here.
+
+## Installation
+Add installation instructions here.
+
+## Usage
+Add usage instructions here.
+
+## Development
+Add development instructions here.
+
+## License
+Add license information here.
+EOF
+
+# Create .gitignore if it doesn't exist
+if [ ! -f .gitignore ]; then
+    cat > .gitignore << EOF
+# Dependencies
+node_modules/
+vendor/
+
+# Build outputs
+dist/
+build/
+target/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage directory used by tools like istanbul
+coverage/
+
+# nyc test coverage
+.nyc_output
+
+# Dependency directories
+jspm_packages/
+
+# Optional npm cache directory
+.npm
+
+# Optional REPL history
+.node_repl_history
+
+# Output of 'npm pack'
+*.tgz
+
+# Yarn Integrity file
+.yarn-integrity
+
+# dotenv environment variables file
+.env
+EOF
+fi
+
+# Initialize git repository
+if [ ! -d .git ]; then
+    print_status "Initializing git repository..."
+    git init
+    git add .
+    git commit -m "Initial commit"
+fi
+
+print_header "Project created successfully!"
+echo ""
+echo "📁 Project location: $PROJECT_DIR"
+echo "🔧 Project type: $PROJECT_TYPE"
+echo ""
+echo "🚀 Next steps:"
+echo "  cd $PROJECT_DIR"
+case $PROJECT_TYPE in
+    rust)
+        echo "  cargo run"
+        ;;
+    node|react|vue|angular)
+        echo "  npm start"
+        ;;
+    python)
+        echo "  source venv/bin/activate"
+        echo "  python main.py"
+        ;;
+    go)
+        echo "  go run main.go"
+        ;;
+    java)
+        echo "  javac src/main/java/*.java"
+        ;;
+    docker)
+        echo "  docker build -t $PROJECT_NAME ."
+        ;;
+    k8s)
+        echo "  kubectl apply -f k8s/"
+        ;;
+    web)
+        echo "  open index.html"
+        ;;
+esac 

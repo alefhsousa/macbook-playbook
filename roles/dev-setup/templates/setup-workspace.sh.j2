@@ -1,0 +1,43 @@
+#!/bin/bash
+
+# Development Workspace Setup Script
+# {{ ansible_managed }}
+
+set -e
+
+echo "🔧 Setting up development workspace..."
+
+# Create workspace directories
+GITHUB_DIR="{{ home_dir }}/github"
+DEV_TOOLS_DIR="{{ home_dir }}/dev-tools"
+SCRIPTS_DIR="{{ home_dir }}/scripts"
+
+# Create directories if they don't exist
+mkdir -p "$GITHUB_DIR"
+mkdir -p "$DEV_TOOLS_DIR"
+mkdir -p "$SCRIPTS_DIR"
+
+
+# Create development tool directories
+mkdir -p "$DEV_TOOLS_DIR/bin"
+mkdir -p "$DEV_TOOLS_DIR/config"
+mkdir -p "$DEV_TOOLS_DIR/templates"
+
+# Create script directories
+mkdir -p "$SCRIPTS_DIR/dev"
+mkdir -p "$SCRIPTS_DIR/utils"
+mkdir -p "$SCRIPTS_DIR/backup"
+
+# Set permissions
+chmod 755 "$GITHUB_DIR"
+chmod 755 "$DEV_TOOLS_DIR"
+chmod 755 "$SCRIPTS_DIR"
+
+echo "✅ Workspace setup completed!"
+echo ""
+echo "📁 Directories created:"
+echo "  - GitHub: $GITHUB_DIR"
+echo "  - Dev Tools: $DEV_TOOLS_DIR"
+echo "  - Scripts: $SCRIPTS_DIR"
+echo ""
+echo "🚀 You can now start developing!" 
