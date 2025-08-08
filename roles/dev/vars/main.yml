@@ -5,7 +5,7 @@ brew_dev_packages:
   - name: bitwise
   - name: doctl
   - name: just
-  - name: task
+  - name: go-task
   - name: pre-commit
   - name: bmon
   - name: hblock

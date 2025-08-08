@@ -7,6 +7,9 @@ export VISUAL="zed"
 export PAGER="less"
 export MANPAGER="less -R"
 
+# task enable remote
+export TASK_X_ENV_PRECEDENCE=1
+
 # Development paths
 export DEV_HOME="{{ home_dir }}"
 export GITHUB_DIR="{{ home_dir }}/github"
@@ -62,4 +65,4 @@ alias dev='cd $WORKSPACE_DIR'
 alias gh='cd $GITHUB_DIR'
 alias proj='cd $PROJECTS_DIR'
 alias tools='cd $DEV_TOOLS_DIR'
-alias scripts='cd $SCRIPTS_DIR' 
+alias scripts='cd $SCRIPTS_DIR'

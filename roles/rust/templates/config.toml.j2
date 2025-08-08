@@ -21,10 +21,12 @@ retry = 3
 [target.x86_64-apple-darwin]
 # Linker configuration
 linker = "clang"
+rustflags = ["-C", "link-arg=-fuse-ld=lld"]
 
 [target.aarch64-apple-darwin]
 # Linker configuration for Apple Silicon
 linker = "clang"
+rustflags = ["-C", "link-arg=-fuse-ld=lld"]
 
 [profile.dev]
 # Optimizations for development
