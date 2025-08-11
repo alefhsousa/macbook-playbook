@@ -1,46 +1,18 @@
 ---
-- name: Create development directories
-  file:
-    path: "{{ item }}"
-    state: directory
-    mode: '0755'
-  with_items: "{{ dev_directories }}"
-  tags:
-    - dev-setup
-    - directories
-
 - name: Create GitHub directory
   file:
     path: "{{ home_dir }}/github"
     state: directory
-    mode: '0755'
+    mode: "0755"
   tags:
     - dev-setup
     - github
-
-- name: Create projects directory
-  file:
-    path: "{{ home_dir }}/projects"
-    state: directory
-    mode: '0755'
-  tags:
-    - dev-setup
-    - projects
-
-- name: Create workspace directory
-  file:
-    path: "{{ home_dir }}/workspace"
-    state: directory
-    mode: '0755'
-  tags:
-    - dev-setup
-    - workspace
 
 - name: Create development tools directory
   file:
     path: "{{ home_dir }}/dev-tools"
     state: directory
-    mode: '0755'
+    mode: "0755"
   tags:
     - dev-setup
     - tools
@@ -49,7 +21,7 @@
   file:
     path: "{{ home_dir }}/scripts"
     state: directory
-    mode: '0755'
+    mode: "0755"
   tags:
     - dev-setup
     - scripts
@@ -58,7 +30,7 @@
   file:
     path: "{{ home_dir }}/.config"
     state: directory
-    mode: '0755'
+    mode: "0755"
   tags:
     - dev-setup
     - config
@@ -67,7 +39,7 @@
   template:
     src: dev-aliases.sh.j2
     dest: "{{ home_dir }}/.dev-aliases.sh"
-    mode: '0644'
+    mode: "0644"
   tags:
     - dev-setup
     - aliases
@@ -75,8 +47,8 @@
 - name: Add development aliases to .zshrc
   lineinfile:
     path: "{{ home_dir }}/.zshrc"
-    line: 'source ~/.dev-aliases.sh'
-    insertafter: '^# Set personal aliases'
+    line: "source ~/.dev-aliases.sh"
+    insertafter: "^# Set personal aliases"
     state: present
   tags:
     - dev-setup
@@ -86,7 +58,7 @@
   template:
     src: dev-env.sh.j2
     dest: "{{ home_dir }}/.dev-env.sh"
-    mode: '0644'
+    mode: "0644"
   tags:
     - dev-setup
     - env
@@ -94,8 +66,8 @@
 - name: Add development environment to .zshrc
   lineinfile:
     path: "{{ home_dir }}/.zshrc"
-    line: 'source ~/.dev-env.sh'
-    insertafter: '^# Set personal aliases'
+    line: "source ~/.dev-env.sh"
+    insertafter: "^# Set personal aliases"
     state: present
   tags:
     - dev-setup
@@ -105,7 +77,7 @@
   template:
     src: gitconfig.j2
     dest: "{{ home_dir }}/.gitconfig"
-    mode: '0644'
+    mode: "0644"
   tags:
     - dev-setup
     - git
@@ -114,7 +86,7 @@
   template:
     src: dev-tools-config.sh.j2
     dest: "{{ home_dir }}/.dev-tools-config.sh"
-    mode: '0644'
+    mode: "0644"
   tags:
     - dev-setup
     - tools-config
@@ -122,8 +94,8 @@
 - name: Add development tools config to .zshrc
   lineinfile:
     path: "{{ home_dir }}/.zshrc"
-    line: 'source ~/.dev-tools-config.sh'
-    insertafter: '^# Set personal aliases'
+    line: "source ~/.dev-tools-config.sh"
+    insertafter: "^# Set personal aliases"
     state: present
   tags:
     - dev-setup
@@ -133,7 +105,7 @@
   template:
     src: setup-workspace.sh.j2
     dest: "{{ home_dir }}/scripts/setup-workspace.sh"
-    mode: '0755'
+    mode: "0755"
   tags:
     - dev-setup
     - scripts
@@ -142,7 +114,7 @@
   template:
     src: create-project.sh.j2
     dest: "{{ home_dir }}/scripts/create-project.sh"
-    mode: '0755'
+    mode: "0755"
   tags:
     - dev-setup
     - scripts

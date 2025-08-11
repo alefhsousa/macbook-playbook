@@ -3,6 +3,7 @@
   connection: local
   gather_facts: false
   roles:
+    - dev
     - apps
     - atuin
     - rust
